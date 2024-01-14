@@ -19,11 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SweetsController {
 
-    @Autowired
-    SweetsRepository sweetsRepository;
-
     private final SweetsService sweetsService;
-
 
     @GetMapping(value = { "/sweets" })
     public List<Sweets> getSweets() {
