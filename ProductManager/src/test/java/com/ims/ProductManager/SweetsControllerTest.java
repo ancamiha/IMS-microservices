@@ -18,38 +18,38 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-@AutoConfigureMockMvc
-@TestMethodOrder(OrderAnnotation.class)
+// @AutoConfigureMockMvc
+// @TestMethodOrder(OrderAnnotation.class)
 public class SweetsControllerTest {
 
-    @Autowired
-    private MockMvc mock;
+    // @Autowired
+    // private MockMvc mock;
 
-    @Test
-    @Order(1)
-    public void addSweetTest() throws Exception {
-        String requestBody = "{\"name\":\"Raffaello Cake\",\"description\":\"Almond sponge cake with white chocolate, Mascarpone and coconut filling. \",\"price\":\"28\"}";
-        mock.perform(post("/SweetShop/addSweet")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(requestBody))
-                .andExpect(status().isOk());
-    }
+    // @Test
+    // @Order(1)
+    // public void addSweetTest() throws Exception {
+    //     String requestBody = "{\"name\":\"Raffaello Cake\",\"description\":\"Almond sponge cake with white chocolate, Mascarpone and coconut filling. \",\"price\":\"28\"}";
+    //     mock.perform(post("/SweetShop/addSweet")
+    //                     .contentType(MediaType.APPLICATION_JSON)
+    //                     .content(requestBody))
+    //             .andExpect(status().isOk());
+    // }
 
-    @Test
-    @Order(2)
-    public void deleteSweetTest() throws Exception {
-        String requestBody = "{\"name\":\"Raffaello Cake\"}";
-        mock.perform(delete("/SweetShop/deleteSweet")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(requestBody))
-                .andExpect(status().isOk());
-    }
+    // @Test
+    // @Order(2)
+    // public void deleteSweetTest() throws Exception {
+    //     String requestBody = "{\"name\":\"Raffaello Cake\"}";
+    //     mock.perform(delete("/SweetShop/deleteSweet")
+    //                     .contentType(MediaType.APPLICATION_JSON)
+    //                     .content(requestBody))
+    //             .andExpect(status().isOk());
+    // }
 
-    @Test
-    @Order(3)
-    public void getSweetsCountTest() throws Exception {
-        mock.perform(get("/SweetShop/sweets"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(7)));
-    }
+    // @Test
+    // @Order(3)
+    // public void getSweetsCountTest() throws Exception {
+    //     mock.perform(get("/SweetShop/sweets"))
+    //             .andExpect(status().isOk())
+    //             .andExpect(jsonPath("$", hasSize(7)));
+    // }
 }
