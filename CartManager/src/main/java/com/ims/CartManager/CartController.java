@@ -1,12 +1,11 @@
 package com.ims.CartManager;
 
-import com.ims.CartManager.model.Cart;
 import com.ims.CartManager.model.ProdOfCart;
 import com.ims.CartManager.model.Sweets;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,6 +36,7 @@ public class CartController {
 
     @DeleteMapping(value = { "/deleteProdFromCart" }, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteProdFromCart(@RequestBody ProdOfCart prodOfCart) {
+        System.out.println(prodOfCart);
         return cartService.deleteProdFromCart(prodOfCart);
     }
 }

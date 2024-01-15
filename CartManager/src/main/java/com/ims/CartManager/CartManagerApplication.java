@@ -18,10 +18,11 @@ public class CartManagerApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/SweetShop/**")
+				registry.addMapping("/**")
 						.allowedOrigins("http://localhost:3000")
-						.allowedMethods("GET", "POST", "PUT", "DELETE")
+						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD")
 						.allowedHeaders("*")
+						.allowedOriginPatterns("*")
 						.allowCredentials(true);
 			}
 		};
