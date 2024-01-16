@@ -1,6 +1,13 @@
-version: '3'
+version: '4'
 
 services:
+  ordermanager:
+    build: ./OrderManager
+    ports:
+      - "8084:8084"
+    depends_on:
+      - authentication
+
   cartmanager:
     build: ./CartManager
     ports:

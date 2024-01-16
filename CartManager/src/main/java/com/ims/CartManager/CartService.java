@@ -1,6 +1,7 @@
 package com.ims.CartManager;
 
 import com.ims.CartManager.model.Cart;
+import com.ims.CartManager.model.DeleteFromCart;
 import com.ims.CartManager.model.ProdOfCart;
 import com.ims.CartManager.model.Sweets;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,7 @@ public class CartService {
         }
     }
 
-    public ResponseEntity<String> deleteProdFromCart(ProdOfCart prodOfCart) {
+    public ResponseEntity<String> deleteProdFromCart(DeleteFromCart prodOfCart) {
         if (cartRepository.existsByUserId(prodOfCart.getUserId())) {
             Cart cart = cartRepository.getByUserId(prodOfCart.getUserId());
             cart.getProducts().remove(prodOfCart.getProduct());

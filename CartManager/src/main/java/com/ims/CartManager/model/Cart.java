@@ -6,16 +6,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
 
+@Data
 @Entity
-@Getter
-@Setter
-@ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cart {
 
     @Id
@@ -25,9 +30,6 @@ public class Cart {
     private Long userId;
     @ElementCollection
     private List<Long> products;
-
-    public Cart() {
-    }
 
     public Cart(Long userId, List<Long> products) {
         this.userId = userId;

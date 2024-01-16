@@ -1,5 +1,6 @@
 package com.ims.CartManager;
 
+import com.ims.CartManager.model.DeleteFromCart;
 import com.ims.CartManager.model.ProdOfCart;
 import com.ims.CartManager.model.Sweets;
 import lombok.RequiredArgsConstructor;
@@ -35,8 +36,8 @@ public class CartController {
     }
 
     @DeleteMapping(value = { "/deleteProdFromCart" }, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> deleteProdFromCart(@RequestBody ProdOfCart prodOfCart) {
-        System.out.println(prodOfCart);
-        return cartService.deleteProdFromCart(prodOfCart);
+    public ResponseEntity<String> deleteProdFromCart(@RequestBody DeleteFromCart deleteFromCart) {
+        System.out.println(deleteFromCart);
+        return cartService.deleteProdFromCart(deleteFromCart);
     }
 }

@@ -43,27 +43,28 @@ public class UserProfileController {
         return userService.login(response, session, userProfile);
     }
 
-    @GetMapping("/get-user-id-cookie")
-    public long getUserIdCookie(HttpServletRequest request) {
-        // Retrieve the user's id from the cookie
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            Optional<Cookie> userIdCookie = Arrays.stream(cookies)
-                .filter(cookie -> cookie.getName().equals("userId"))
-                .findFirst();
-
-            if (userIdCookie.isPresent()) {
-                return Long.parseLong(userIdCookie.get().getValue());
-            }
-        }
-        return -1;
-    }
-
     @GetMapping("/check-login")
     public boolean checkLogin(HttpSession session) {
         // Check if the user's id is set in the session
         Long userId = (Long) session.getAttribute("userId");
         System.out.println(userId != null);
         return userId != null;
+    }
+
+
+    @GetMapping("/get-user-id-cookie")
+    public long getUserIdCookie(HttpServletRequest request) {
+        // Retrieve the user's id from the cookie
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            Optional<Cookie> userIdCookie = Arrays.stream(cookies)
+                    .filter(cookie -> cookie.getName().equals("userId"))
+                    .findFirst();
+
+            if (userIdCookie.isPresent()) {
+                return Long.parseLong(userIdCookie.get().getValue());
+            }
+        }
+        return -1;
     }
 }
